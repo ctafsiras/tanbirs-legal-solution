@@ -1,11 +1,26 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Login = () => {
+    const navigate=useNavigate()
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
     const handleLogin = e => {
         e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(email, password)
 
+    }
+    if (user) {
+        navigate('/')
     }
     return (
         <div>
@@ -20,7 +35,8 @@ const Login = () => {
 
                     <Form.Control name='password' type="password" placeholder="Enter Password" />
                 </Form.Group>
-
+                {loading && <p className='text-primary'>Please Wait...</p>}
+                {error && <p className='text-danger'>{error.message}</p>}
                 <Button className='w-100 mb-3' variant="success" type="submit">
                     Login
                 </Button>
