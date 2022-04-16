@@ -1,18 +1,30 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
     const handleRegister = e => {
         e.preventDefault()
+        const name=e.target.name.value;
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        createUserWithEmailAndPassword(email, password)
 
     }
     return (
         <div>
-            <h2>Register</h2>
+            <h2 className='my-3'>Register</h2>
             <Form className='w-25 mx-auto' onSubmit={handleRegister}>
                 <Form.Group className="mb-3">
-                    <Form.Control name='name' type="text" placeholder="Enter Email" />
+                    <Form.Control name='name' type="text" placeholder="Enter Your Name" />
 
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -24,7 +36,8 @@ const Register = () => {
 
                     <Form.Control name='password' type="password" placeholder="Enter Password" />
                 </Form.Group>
-
+                {loading && <p className='text-primary'>Please Wait...</p>}
+                {error && <p className='text-danger'>{error.message}</p>}
                 <Button className='w-100 mb-3' variant="success" type="submit">
                     Register
                 </Button>

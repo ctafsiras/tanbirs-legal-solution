@@ -9,7 +9,7 @@ const Login = () => {
     }
     return (
         <div>
-            <h2>Login</h2>
+            <h2 className='my-3'>Login</h2>
             <Form className='w-25 mx-auto' onSubmit={handleLogin}>
                 <Form.Group className="mb-3">
                     <Form.Control name='email' type="email" placeholder="Enter Email" />
