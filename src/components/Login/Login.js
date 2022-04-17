@@ -45,13 +45,13 @@ const Login = () => {
             <h2 className='my-3'>Login</h2>
             <Form style={{maxWidth: '350px'}} className='mx-auto' onSubmit={handleLogin}>
                 <Form.Group className="mb-3">
-                    <Form.Control onBlur={(e)=>setEmailForReset(e.target.value)} name='email' type="email" placeholder="Enter Email" />
+                    <Form.Control required onBlur={(e)=>setEmailForReset(e.target.value)} name='email' type="email" placeholder="Enter Email" />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3">
 
-                    <Form.Control name='password' type="password" placeholder="Enter Password" />
+                    <Form.Control required name='password' type="password" placeholder="Enter Password" />
                 </Form.Group>
                 {loading && <p className='text-primary'>Please Wait...</p>}
                 {error && <p className='text-danger'>{error.message}</p>}

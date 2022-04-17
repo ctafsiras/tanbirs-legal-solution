@@ -15,6 +15,7 @@ const Blog = () => {
             </div>
             <h2>3. What other services firebase provides other than Authentication?</h2>
             <p>We are using firebase in this course till the date only for Authentication purpose. But firebase provides lots of other services other than authentication. amongst them Realtime Database, Remote Config, Firebase ML, Cloud Functions, Cloud Messaging, Hosting, Cloud Storage and many mores.</p>
+            <hr />
         </div>
     );
 };

@@ -33,13 +33,13 @@ const Register = () => {
 
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Control name='email' type="email" placeholder="Enter Email" />
+                    <Form.Control required name='email' type="email" placeholder="Enter Email" />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3">
 
-                    <Form.Control name='password' type="password" placeholder="Enter Password" />
+                    <Form.Control required name='password' type="password" placeholder="Enter Password" />
                 </Form.Group>
                 {loading && <p className='text-primary'>Please Wait...</p>}
                 {error && <p className='text-danger'>{error.message}</p>}

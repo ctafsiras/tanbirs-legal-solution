@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 const Contact = () => {
     return (
         <div>
+            <hr />
             <h2 className='mt-3'>Contact Us</h2>
             <div className='row row-cols-1 row-cols-md-2 container mx-auto'>
                 <div className='col'>
@@ -13,10 +14,10 @@ const Contact = () => {
                     <h3>Get a Quote </h3>
                     <Form onSubmit={(e)=>e.preventDefault()}>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" placeholder="Enter Name" />
+                            <Form.Control required type="text" placeholder="Enter Name" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="email" placeholder="Enter Email" />
+                            <Form.Control required type="email" placeholder="Enter Email" />
                         </Form.Group>
 
 
@@ -26,6 +27,7 @@ const Contact = () => {
                     </Form>
                 </div>
             </div>
+            <hr />
         </div>
     );
 };
