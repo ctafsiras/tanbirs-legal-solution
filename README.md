@@ -12,7 +12,7 @@ Live Website Link [Tanbir's Legal Solution](https://tanbirs-legal-solution.web.a
 
 ## Library and hooks used
 
-*react-bootstrap
-*react-router
-*firebase
-*react-firebase-hooks
+-react-bootstrap
+-react-router
+-firebase
+-react-firebase-hooks
