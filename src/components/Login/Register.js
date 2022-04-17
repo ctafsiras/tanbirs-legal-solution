@@ -6,18 +6,18 @@ import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
 
 const Register = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const handleRegister = e => {
         e.preventDefault()
-        const name=e.target.name.value;
-        const email=e.target.email.value;
-        const password=e.target.password.value;
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
         createUserWithEmailAndPassword(email, password)
 
     }
@@ -27,7 +27,7 @@ const Register = () => {
     return (
         <div>
             <h2 className='my-3'>Register</h2>
-            <Form style={{maxWidth: '350px'}}  className='mx-auto' onSubmit={handleRegister}>
+            <Form style={{ maxWidth: '350px' }} className='mx-auto' onSubmit={handleRegister}>
                 <Form.Group className="mb-3">
                     <Form.Control name='name' type="text" placeholder="Enter Your Name" />
 
