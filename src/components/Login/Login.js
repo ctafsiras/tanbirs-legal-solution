@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../CustomComponents/Loading';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -29,7 +30,7 @@ const Login = () => {
     return (
         <div>
             <h2 className='my-3'>Login</h2>
-            <Form className='w-25 mx-auto' onSubmit={handleLogin}>
+            <Form style={{maxWidth: '350px'}} className='mx-auto' onSubmit={handleLogin}>
                 <Form.Group className="mb-3">
                     <Form.Control name='email' type="email" placeholder="Enter Email" />
 
@@ -46,6 +47,7 @@ const Login = () => {
                 </Button>
             </Form>
             <p>Don't have account? <Link className='text-decoration-none' to='/register'>Create an account now</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

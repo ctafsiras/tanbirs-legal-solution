@@ -17,8 +17,8 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <Nav.Link as={CustomLink} to="/">Home</Nav.Link>
+                            <Nav.Link as={CustomLink} to="/blog">Blog</Nav.Link>
                             <Nav.Link as={CustomLink} to="/about">About</Nav.Link>
-                            <Nav.Link as={CustomLink} to="/checkout">Checkout</Nav.Link>
                             {user ? <button onClick={()=>signOut(auth)} className='border-0 rounded bg-danger text-white fw-bolder'>Log Out</button>: <Nav.Link as={CustomLink} to="/login">Login</Nav.Link>
                             }
 
